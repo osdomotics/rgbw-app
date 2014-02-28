@@ -1,0 +1,3 @@
+title=OSD RGBW LED Controller
+author=Marcus Priesch
+orientation=portrait
