@@ -1,6 +1,8 @@
 Install
 =======
 
+This is for dual rgbw led actor
+
 on gentoo you need
 ------------------
 
