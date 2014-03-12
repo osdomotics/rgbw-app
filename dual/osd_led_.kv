@@ -1,0 +1,284 @@
+#:kivy 1.6
+#<RGBW_Layout_Container>:
+#    rgbw1 : RGBWLedWidget
+#    rgbw2 : RGBWLedWidget
+<RGBSlider@Slider>:
+    size_hint_x: 0.6
+    min: 0
+    max: 255
+    step: 1
+
+<PresetWidget@Widget>:
+    canvas:
+        Rectangle:
+            size: self.size
+            pos:  self.pos
+
+<RGBW_Led_Widget>:
+    id:rgbwledwidget
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    red: red
+    green: green
+    blue: blue
+    white: white
+    brightness: brightness
+    color: color
+    switch: switch
+    status: status
+    buttoncontainer: buttoncontainer
+
+    TextInput:
+        multiline: False
+        id: status
+        size_hint_y: 0.1
+
+    BoxLayout:
+        orientation: "horizontal"
+        spacing: 10
+        size_hint_y: 0.1
+        Widget:
+            id: color
+            size_hint_x: 0.7
+            canvas:
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos
+        Switch:
+            id: switch
+            active: True
+            size_hint_x: 0.3
+
+    GridLayout:
+        spacing: 5
+        cols: 5
+        size_hint_y: 0.4
+
+        Label:
+            text: "Red"
+            size_hint_x: 0.1
+        Label:
+            id: red_value
+            text: "0"
+            size_hint_x: 0.1
+        RGBSlider:
+            id: red
+            on_value: red_value.text = "%d" % int (self.value)
+            on_value: root.color_changed ()
+        Button:
+            text: "+"
+            on_release: red.value = min ([red.value + 1, red.max])
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: red.value = max ([red.value -1, red.min])
+            size_hint_x: 0.1
+
+        Label:
+            text: "Green"
+            size_hint_x: 0.1
+        Label:
+            id: green_value
+            text: "0"
+            size_hint_x: 0.1
+        RGBSlider:
+            id: green
+            on_value: green_value.text = "%d" % int (self.value)
+            on_value: root.color_changed ()
+        Button:
+            text: "+"
+            on_release: green.value = min ([green.value + 1, green.max])
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: green.value = max ([green.value -1, green.min])
+            size_hint_x: 0.1
+
+        Label:
+            text: "Blue"
+            size_hint_x: 0.1
+        Label:
+            id: blue_value
+            text: "0"
+            size_hint_x: 0.1
+        RGBSlider:
+            id: blue
+            on_value: blue_value.text = "%d" % int (self.value)
+            on_value: root.color_changed ()
+        Button:
+            text: "+"
+            on_release: blue.value = min ([blue.value + 1, blue.max])
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: blue.value = max ([blue.value -1, blue.min])
+            size_hint_x: 0.1
+
+        Label:
+            text: "White"
+            size_hint_x: 0.1
+        Label:
+            id: white_value
+            text: "0"
+            size_hint_x: 0.1
+        RGBSlider:
+            id: white
+            on_value: white_value.text = "%d" % int (self.value)
+            on_value: root.color_changed ()
+        Button:
+            text: "+"
+            on_release: white.value = min ([white.value + 1, white.max])
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: white.value = max ([white.value -1, white.min])
+            size_hint_x: 0.1
+
+        Label:
+            text: "Bright"
+            size_hint_x: 0.1
+        Label:
+            id: brightness_value
+            text: "0"
+            size_hint_x: 0.1
+        RGBSlider:
+            id: brightness
+            value: 255
+            on_value: brightness_value.text = "%d" % int (self.value)
+            on_value: root.color_changed ()
+        Button:
+            text: "+"
+            on_release: brightness.value = min ([brightness.value + 1, brightness.max])
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: brightness.value = max ([brightness.value -1, brightness.min])
+            size_hint_x: 0.1
+
+    GridLayout:
+        spacing: 15
+        cols: 3
+        size_hint_y: 0.3
+        id: buttoncontainer
+
+        PresetWidget:
+            idx: 0
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 1
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 2
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+
+        PresetWidget:
+            idx: 3
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 4
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 5
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 6
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 7
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        PresetWidget:
+            idx: 8
+            color_set: False
+            on_touch_down: root.btn_touch_down (args)
+            on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 9
+        #    color_set: False
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 10
+        #    color_set: False
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 11
+        #    color_set: False
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 12
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 13
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 14
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 15
+        #    on_touch_down: root.btn_touch_down (args)
+        #    on_touch_up: root.btn_touch_up (args)
+
+        #PresetWidget:
+        #    idx: 16
+
+        #PresetWidget:
+        #    idx: 17
+
+        #PresetWidget:
+        #    idx: 18
+
+
+        #PresetWidget:
+        #    idx: 19
+
+        #PresetWidget:
+        #    idx: 20
+
+        #PresetWidget:
+        #    idx: 21
+
+        #PresetWidget:
+        #    idx: 22
+
+        #PresetWidget:
+        #    idx: 23
+
+        #PresetWidget:
+        #    idx: 24
