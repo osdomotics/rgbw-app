@@ -19,6 +19,7 @@ import coapy
 import coapput
 import socket
 import time
+from ConfigParser import NoOptionError
 
 from kivy.app import App
 from kivy.properties import ObjectProperty, StringProperty
@@ -241,8 +242,15 @@ class OSD_Led_App (App) :
 
        # self.turned_off = False
         self.send_coap  = True
-        self.COLORS [1] = eval (self.config.get ("OSD_RGBW_Led_App", "COLORS_1"))
-        self.COLORS [2] = eval (self.config.get ("OSD_RGBW_Led_App", "COLORS_2"))
+        self.COLORS = {1:{}, 2:{}}
+        try :
+            self.COLORS [1] = eval (self.config.get ("OSD_RGBW_Led_App",
+                                                     "COLORS_1", {}))
+            self.COLORS [2] = eval (self.config.get ("OSD_RGBW_Led_App",
+                                                     "COLORS_2", {}))
+        except NoOptionError :
+            print "no color definitions found"
+
         print self.COLORS
         self.root = RGBW_Layout_Container (self.COLORS, self.config)
         return self.root
