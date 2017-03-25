@@ -1,3 +1,4 @@
-title=OSD RGBW LED Controller
+title=OSDomotics Single RGB Controller
 author=Marcus Priesch
 orientation=portrait
+

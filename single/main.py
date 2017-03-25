@@ -433,7 +433,7 @@ class OSD_Led_App (App) :
                 request_copy = copy.deepcopy(request)
                 if scheme != "coap":
                     print 'Error: URI scheme should be "coap"'
-                request_copy.remote = (ip_address (host), port)
+                request_copy.remote = (ip_address (unicode(host)), port)
                 if path != "" and path != "/":
                     path = path.lstrip("/")
                     request_copy.opt.uri_path = path.split("/")
