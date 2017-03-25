@@ -8,7 +8,7 @@
     red: red
     green: green
     blue: blue
-    white: white
+#    white: white
     brightness: brightness
     color: color
     switch: switch
@@ -39,7 +39,7 @@
     GridLayout:
         spacing: 5
         cols: 5
-        size_hint_y: 0.4
+        size_hint_y: 0.3
 
         Label:
             text: "Red"
@@ -47,6 +47,10 @@
         Label:
             id: red_value
             text: "0"
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: red.value = max ([red.value -1, red.min])
             size_hint_x: 0.1
         Slider:
             size_hint_x: 0.6
@@ -60,10 +64,6 @@
             text: "+"
             on_release: red.value = min ([red.value + 1, red.max])
             size_hint_x: 0.1
-        Button:
-            text: "-"
-            on_release: red.value = max ([red.value -1, red.min])
-            size_hint_x: 0.1
 
         Label:
             text: "Green"
@@ -71,6 +71,10 @@
         Label:
             id: green_value
             text: "0"
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: green.value = max ([green.value -1, green.min])
             size_hint_x: 0.1
         Slider:
             size_hint_x: 0.6
@@ -84,10 +88,6 @@
             text: "+"
             on_release: green.value = min ([green.value + 1, green.max])
             size_hint_x: 0.1
-        Button:
-            text: "-"
-            on_release: green.value = max ([green.value -1, green.min])
-            size_hint_x: 0.1
 
         Label:
             text: "Blue"
@@ -95,6 +95,10 @@
         Label:
             id: blue_value
             text: "0"
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: blue.value = max ([blue.value -1, blue.min])
             size_hint_x: 0.1
         Slider:
             size_hint_x: 0.6
@@ -108,34 +112,30 @@
             text: "+"
             on_release: blue.value = min ([blue.value + 1, blue.max])
             size_hint_x: 0.1
-        Button:
-            text: "-"
-            on_release: blue.value = max ([blue.value -1, blue.min])
-            size_hint_x: 0.1
 
-        Label:
-            text: "White"
-            size_hint_x: 0.1
-        Label:
-            id: white_value
-            text: "0"
-            size_hint_x: 0.1
-        Slider:
-            size_hint_x: 0.6
-            min: 0
-            max: 255
-            step: 1
-            id: white
-            on_value: white_value.text = "%d" % int (self.value)
-            on_value: app.color_changed ()
-        Button:
-            text: "+"
-            on_release: white.value = min ([white.value + 1, white.max])
-            size_hint_x: 0.1
-        Button:
-            text: "-"
-            on_release: white.value = max ([white.value -1, white.min])
-            size_hint_x: 0.1
+#        Label:
+#            text: "White"
+#            size_hint_x: 0.1
+#        Label:
+#            id: white_value
+#            text: "0"
+#            size_hint_x: 0.1
+#        Button:
+#            text: "-"
+#            on_release: white.value = max ([white.value -1, white.min])
+#            size_hint_x: 0.1
+#        Slider:
+#            size_hint_x: 0.6
+#            min: 0
+#            max: 255
+#            step: 1
+#            id: white
+#            on_value: white_value.text = "%d" % int (self.value)
+#            on_value: app.color_changed ()
+#        Button:
+#            text: "+"
+#            on_release: white.value = min ([white.value + 1, white.max])
+#            size_hint_x: 0.1
 
         Label:
             text: "Bright"
@@ -143,6 +143,10 @@
         Label:
             id: brightness_value
             text: "0"
+            size_hint_x: 0.1
+        Button:
+            text: "-"
+            on_release: brightness.value = max ([brightness.value -1, brightness.min])
             size_hint_x: 0.1
         Slider:
             size_hint_x: 0.6
@@ -156,10 +160,6 @@
         Button:
             text: "+"
             on_release: brightness.value = min ([brightness.value + 1, brightness.max])
-            size_hint_x: 0.1
-        Button:
-            text: "-"
-            on_release: brightness.value = max ([brightness.value -1, brightness.min])
             size_hint_x: 0.1
 
     GridLayout:

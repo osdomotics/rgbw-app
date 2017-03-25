@@ -1,0 +1,4 @@
+Cython
+Kivy
+pygame
+txThings
